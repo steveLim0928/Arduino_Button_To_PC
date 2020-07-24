@@ -1,0 +1,50 @@
+#define btnNum 3
+
+int btnArr[] = {2, 3, 8};
+bool btnState[] = {0, 0, 0};
+
+void setup() {
+  // put your setup code here, to run once:
+
+  pinMode(2,INPUT);
+  pinMode(3,INPUT);
+  pinMode(8,INPUT);
+
+  Serial.begin(9600);
+//  Serial.println("Start");
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  for (int i = 0; i < btnNum; i++) {
+    int state;
+    state = digitalRead(btnArr[i]);
+    btnState[i] = state;
+    delay(10);
+  }
+
+  Serial.println("BTN1");
+  if (btnState[0] == 0) {
+    Serial.println("False");
+  }
+  else if (btnState[0] == 1) {
+    Serial.println("True");
+  }
+  Serial.println("BTN2");
+  if (btnState[1] == 0) {
+    Serial.println("False");
+  }
+  else if (btnState[1] == 1) {
+    Serial.println("True");
+  }
+  Serial.println("BTN3");
+  if (btnState[2] == 0) {
+    Serial.println("False");
+  }
+  else if (btnState[2] == 1) {
+    Serial.println("True");
+  }
+
+}
